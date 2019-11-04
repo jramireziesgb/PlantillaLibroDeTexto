@@ -1,0 +1,41 @@
+\documentclass[a4paper, 12pt, twoside, titlepage, openright, final]{book}
+
+% Hiperenlaces
+\usepackage{hyperref}
+
+% Idioma español 
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+
+% Lorem ipsum
+\usepackage{blindtext}
+
+% Fichero con configuraciones varias
+\include{conf}
+
+% Definiciones varias
+\title{TÍTULO}
+\author{AUTOR}
+\date{FECHA}
+
+
+\begin{document}
+
+\pagestyle{EstiloLibroDeTexto}
+
+\maketitle
+
+\tableofcontents
+
+%\part{PRIMERA PARTE}
+\include{cap_1}
+%\include{CAP_2}
+%...
+
+%\part{SEGUNDA PARTE}
+%\include{CAP_N}
+%\include{CAP_N+1}
+%...
+    
+\end{document}

@@ -1,0 +1,66 @@
+% Cabeceras y pies de página %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancypagestyle{EstiloLibrodeTexto}{%
+    \fancyhead{} %Clean headers
+    \fancyhead[LE]{\slshape TÍTULO} % Left & Even pages
+    \fancyhead[RO]{\slshape \leftmark} % Right & Odd pages
+    \fancyfoot[CE,CO]{\thepage} % Center Even & Odd pages
+    \renewcommand{\chaptermark}[1]{\markboth{ {\slshape{##1}}}{}}
+    \renewcommand{\headrulewidth}{1pt}
+    \renewcommand{\footrulewidth}{1pt}
+}
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Sans Serif %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Elimina la palabra "Capítulo" de cada capítulo %%%
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \Huge\bfseries\space\thechapter.\space
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Elimina la palabra "Parte" y el número de cada parte
+\addto\captionsspanish{
+    \renewcommand{\partname}{}
+%    \renewcommand{\thepart}{}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Se le añade puntos como separadores a la TOC %%%%%
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}    % Partes
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}    % Capítulos
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}     % Secciones
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}  % Subsecciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Renombramos la TOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addto\captionsspanish{% Replace "spanish" with the language you use
+  \renewcommand{\contentsname}%
+    {Índice}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
